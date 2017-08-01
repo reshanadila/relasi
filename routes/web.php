@@ -29,5 +29,7 @@ Route::get('/percobaan1', 'MyController@tampilan');
 Route::get('/percobaan2', 'MyController@tampilanmodel');
 Route::resource('/orangtuaaa','OrangtuaController');
 Auth::routes();
+Route::resource('/anak','anakController');
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

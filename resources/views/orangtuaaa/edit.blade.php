@@ -5,7 +5,7 @@
 <div class="panel panel-primary">
 <div class="panel-heading">Data Orang Tua
 <div class="panel-title pull-right">
-<a href="URL::previous()}}">Kembali</a></div></div>
+<a href="{{URL::previous()}}">Kembali</a></div></div>
 
 	<div class="panel-body">
 	<form action="{{route('orangtuaaa.update',$ortu->id )}}" method="post">
