@@ -31,5 +31,9 @@ Route::resource('/orangtuaaa','OrangtuaController');
 Auth::routes();
 Route::resource('/anak','anakController');
 Auth::routes();
+Route::resource('/author','authorController');
+Auth::routes();
+Route::resource('/book','bookController');
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
