@@ -16,7 +16,7 @@ class bookController extends Controller
     public function index()
     {
         //
-         $book = book::with('author')->get();
+         $book = book::all();
         return view('book.index',compact('book'));
     }
 
@@ -29,7 +29,7 @@ class bookController extends Controller
     {
         //
         $author = author::all();
-        return view('book.create',compact('book'));
+        return view('book.create',compact('author'));
     }
 
     /**
@@ -42,9 +42,9 @@ class bookController extends Controller
     {
         //
          $book = new book;
-        $book->title =$request->title;
-        $book->author_id =$request->author_id;
-        $book->amounth =$request->amounth;
+        $book->title =$request->a;
+        $book->author_id =$request->b;
+        $book->amounth =$request->amount;
         if ($request->hasFile('cover')){
             $books = $request->file('cover');
             $extension = $books->getClientOriginalExtension();
@@ -55,9 +55,6 @@ class bookController extends Controller
             $book->cover = $filename;
         }
         $book->save();
-        //dicreate.blade bag<form> + enctype="multipart/form-data"
-        //cover type -> file
-        //dd($book);
         return redirect('book');
     }
 
@@ -70,6 +67,9 @@ class bookController extends Controller
     public function show($id)
     {
         //
+        $book = book::findOrFail('$id');
+        $author = author::all();
+        return view ('book.show',compact('book','author'));
     }
 
     /**
@@ -81,6 +81,9 @@ class bookController extends Controller
     public function edit($id)
     {
         //
+         $book = book::findOrFail('$id');
+        $author = author::all();
+        return view ('book.edit',compact('book','author'));
     }
 
     /**
